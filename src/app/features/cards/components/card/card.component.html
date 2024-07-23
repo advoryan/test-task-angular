@@ -10,30 +10,15 @@
     [disabled]="cardFormGroup.disabled"
   ></button>
 
-  <app-form-field
-    label="Country"
-    type="text"
-    [control]="country"
-    [search]="search"
-    [validationClass]="getValidationClass(country)"
-    appValidationTooltip
-  ></app-form-field>
-  
-  <app-form-field
-    label="Username"
-    type="text"
-    [control]="username"
-    [validationClass]="getValidationClass(username)"
-    appValidationTooltip
-  ></app-form-field>
-  
-  <app-form-field
-    label="Birthday"
-    type="date"
-    [control]="birthday"
-    [max]="today"
-    [validationClass]="getValidationClass(birthday)"
-    appValidationTooltip
-  ></app-form-field>
-
+  @for (formField of formFields; track formField.controlName) {
+    <app-form-field
+      [label]="formField.label"
+      [type]="formField.type"
+      [control]="cardFormGroup.controls[formField.controlName]"
+      [search]="formField.search ?? null"
+      [max]="formField.max ?? ''"
+      [validationClass]="getValidationClass(cardFormGroup.controls[formField.controlName])"
+      appValidationTooltip
+    ></app-form-field>
+  }
 </fieldset>

@@ -11,6 +11,8 @@ export class MockBackendInterceptor implements HttpInterceptor {
       return this.handleCheckUsername(req);
     }
     if (req.url.endsWith('/api/submitForm') && req.method === 'POST') {
+      console.log('submitForm request:', req.body);
+      
       return this.handleSubmitForm();
     }
 

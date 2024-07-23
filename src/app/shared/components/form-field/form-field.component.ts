@@ -42,6 +42,6 @@ export class FormFieldComponent implements ControlValueAccessor {
     this.onTouched = fn;
   }
   
-  onChange = (value: any) => {};
+  onChange = () => {};
   onTouched = () => {};
 }
