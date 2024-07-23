@@ -1,0 +1,26 @@
+<div class="form-field d-flex flex-column gap-1">
+  <label [for]="label">{{ label }}</label>
+
+  @if (search) {
+    <input
+      [type]="type"
+      [id]="label"
+      [placeholder]="placeholder"
+      class="form-control"
+      [ngClass]="validationClass"
+      [formControl]="control"
+      [ngbTypeahead]="search"
+    />
+  } @else {
+    <input
+      [type]="type"
+      [id]="label"
+      [placeholder]="placeholder"
+      class="form-control"
+      [ngClass]="validationClass"
+      [formControl]="control"
+      [max]="max"
+      autocomplete="off"
+    />
+  }
+  </div>
